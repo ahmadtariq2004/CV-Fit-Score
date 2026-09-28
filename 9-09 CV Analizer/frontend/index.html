@@ -1,0 +1,68 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV Fit Score</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style-redesign.css' %}">
+  <link rel="stylesheet" href="{% static 'cursor-effects.css' %}">
+  <link rel="stylesheet" href="{% static 'credit.css' %}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CV Fit Score home"><span class="brand-mark">C</span><span>CV Fit Score</span></a>
+    <div class="topbar-right"><span class="topbar-link">Private by design</span><div class="local-status"><span class="status-dot"></span> Local workspace</div></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="intro">
+        <div class="eyebrow"><span class="eyebrow-line"></span> AI-powered career intelligence</div>
+        <h1>Make your next move <em>count.</em></h1>
+        <p>See how your CV performs against the role you actually want. CV Fit Score turns the job description into a clear, actionable fit report.</p>
+        <div class="hero-proof"><span class="proof-avatars"><i>✦</i><i>↗</i><i>◎</i></span><span>Built for focused applications<br><b>Relevance, not worth.</b></span></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="visual-card visual-card-main"><div class="visual-card-top"><span>ROLE FIT</span><span class="mini-live"><b></b> LIVE</span></div><div class="visual-score">82<span>%</span></div><div class="visual-caption">Strong match</div><div class="signal-bars"><span style="height:72%"></span><span style="height:90%"></span><span style="height:57%"></span><span style="height:82%"></span><span style="height:66%"></span><span style="height:96%"></span><span style="height:76%"></span><span style="height:88%"></span></div></div>
+        <div class="floating-tag tag-skills"><span>✓</span> Python · Django</div><div class="floating-tag tag-focus"><span>＋</span> Surface your edge</div>
+      </div>
+    </section>
+
+    <form id="analyzer-form" class="workspace" novalidate>
+      <section class="input-panel panel panel-job">
+        <div class="section-heading"><div><span class="step">01</span><h2>Job description</h2></div><span class="required">Required</span></div>
+        <label class="sr-only" for="job-description">Job Description</label>
+        <textarea id="job-description" name="job_description" maxlength="12000" placeholder="Paste the role description here..." required></textarea>
+        <div class="field-meta"><span>Include responsibilities, requirements, and preferred skills.</span><span id="char-count">0 / 12,000</span></div>
+      </section>
+
+      <section class="upload-panel panel panel-cv">
+        <div class="section-heading"><div><span class="step">02</span><h2>Your CV</h2></div><span class="required">Required</span></div>
+        <label class="dropzone" id="dropzone" for="cv-file" tabindex="0">
+          <input id="cv-file" name="cv_file" type="file" accept=".pdf,.docx,.txt" required>
+          <span class="upload-icon">↑</span>
+          <strong>Drop your CV here</strong>
+          <span>or <u>browse from your computer</u></span>
+          <small>PDF, DOCX, or TXT · max 5 MB</small>
+          <span class="file-preview" id="file-preview"></span>
+        </label>
+      </section>
+
+      <div class="action-row">
+        <div class="privacy-note"><span>◈</span> Processed locally · never stored</div>
+        <button class="analyze-button" id="analyze-button" type="submit"><span>Analyze CV</span><span class="button-arrow">→</span></button>
+      </div>
+      <div class="error-message" id="error-message" role="alert"></div>
+    </form>
+
+    <section class="results" id="results" aria-live="polite" hidden></section>
+  </main>
+  <footer>CV Fit Score <span>·</span> Relevance, not worth. <small>Crafted by Muhammad Ahmad</small></footer>
+  <script src="{% static 'app.js' %}"></script>
+</body>
+</html>
